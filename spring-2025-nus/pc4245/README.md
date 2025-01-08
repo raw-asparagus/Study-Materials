@@ -16,6 +16,7 @@ unified models. This course is mainly targeted at physics majors.
 
 ```text
 .
+├── archive (Archived course materials from AY2320)
 └── README.md
 ```
 
