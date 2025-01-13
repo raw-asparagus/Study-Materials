@@ -15,6 +15,7 @@ tidal forces, planetary atmospheres, and Newtonian cosmology.
 
 ```text
 .
+├── course (Course materials from AY2420)
 └── README.md
 ```
 
