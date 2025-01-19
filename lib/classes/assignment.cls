@@ -21,17 +21,20 @@
 }
 
 % Custom commands
-\newcommand{\courseinfo}[3]{%
-    \def\@course{#1} % Course name
-    \def\@assignment{#2} % Assignment title
-    \def\@duedate{#3} % Due date
+\newcommand{\courseinfo}[4]{%
+    \def\@coursecode{#1} % Course name
+    \def\@coursename{#2} % Course name
+    \def\@assignment{#3} % Assignment title
+    \def\@duedate{#4} % Due date
 }
 
 \newcommand{\displayheader}{%
     \noindent
     \begin{minipage}{0.32\textwidth}
         \begin{flushleft}
-            \@course % Left-justified
+            \@coursecode
+
+            \@coursename
         \end{flushleft}
     \end{minipage}%
     \hfill
