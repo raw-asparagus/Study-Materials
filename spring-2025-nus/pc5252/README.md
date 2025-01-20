@@ -16,6 +16,8 @@ computational component.
 
 ```text
 .
+├── archive (Archived course materials from AY2220)
+├── course (Course materials from AY2420)
 └── README.md
 ```
 
