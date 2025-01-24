@@ -6,13 +6,27 @@
 Show that the acceleration of a particle moving along a trajectory
 $\vb{r}\paren{t}$ is given by
 \begin{equation}
-    \vb{a}\paren{t} = \frac{dv\paren{t}}{dt}\hat{\vb{e}}_T + \frac{v^2\paren{t}}{\rho}\hat{\vb{e}}_N,
+    \vb{a}\paren{t} = \frac{dv\paren{t}}{dt}\hat{\vb{e}}_{\text{T}} + \frac{v^2\paren{t}}{\rho}\hat{\vb{e}}_{\text{N}},
 \end{equation}
 where $\rho \equiv \frac{1}{\kappa}$ is its radius of curvature.
 \end{ex}
 
 \begin{sol}
-
+\begin{proof}
+Given that the velocity vector $\vb{v}$ of the particle can be expressed in TNB
+basis as,
+\begin{equation}
+    \vb{v}\paren{s} = v\paren{s}\hat{\vb{e}}_{\text{T}},
+\end{equation}
+where given that $s: t \mapsto s\paren{t}$,
+\begin{equation}
+    \begin{split}
+        \vb{a}\paren{t} = \frac{d^2\vb{r}\paren{t}}{dt^2} = \frac{d\vb{v}\paren{t}}{dt} &= \frac{dv\paren{t}}{dt}\hat{\vb{e}}_{\text{T}} + v\paren{t}\frac{d\hat{\vb{e}}_{\text{T}}}{dt} = \frac{dv\paren{t}}{dt}\hat{\vb{e}}_{\text{T}} + v\paren{t}\sparen{\frac{d\hat{\vb{e}}_{\text{T}}}{ds}\frac{ds\paren{t}}{dt}}\\
+        &= \frac{dv\paren{t}}{dt}\hat{\vb{e}}_{\text{T}} + v\paren{t}\kappa\paren{s}\hat{\vb{e}}_{\text{N}}v\paren{t}\\
+        &= \frac{dv\paren{t}}{dt}\hat{\vb{e}}_{\text{T}} + \frac{v^2\paren{t}}{\rho}\hat{\vb{e}}_{\text{N}}.
+    \end{split}
+\end{equation}
+\end{proof}
 \end{sol}
 
 \end{document}
