@@ -30,13 +30,13 @@ and,
 Given the definition of the tangent vector,
 \begin{equation}
     \begin{split}
-        \hat{\vb{e}}_{\text{T}} &= \frac{d\vb{r}}{ds} = \frac{\frac{d\vb{r}}{dt}}{\frac{ds}{dt}} = \frac{-a\omega\sin\omega t\hat{\vb{e}}_x + a\omega\cos\omega t\hat{\vb{e}}_y + b\omega\hat{\vb{e}}_z}{\omega\sqrt{a^2 + b^2}}\\
+        \hat{\vb{e}}_{\text{T}} &= \frac{d\vb{r}}{ds} = \frac{d\vb{r}}{dt}\frac{dt}{ds} = \paren{-a\omega\sin\omega t\hat{\vb{e}}_x + a\omega\cos\omega t\hat{\vb{e}}_y + b\omega\hat{\vb{e}}_z}\paren{\frac{1}{\omega\sqrt{a^2 + b^2}}}\\
         &= \frac{1}{\sqrt{a^2 + b^2}}\paren{-a\sin\omega t\hat{\vb{e}}_x + a\cos\omega t\hat{\vb{e}}_y + b\hat{\vb{e}}_z},
     \end{split}
 \end{equation}
 and,
 \begin{equation}
-    \frac{d\hat{\vb{e}}_{\text{T}}}{dt} = \frac{1}{\sqrt{a^2 + b^2}}\paren{-a\omega\cos\omega t\hat{\vb{e}}_x - a\omega\sin\omega t\hat{\vb{e}}_y} = -\frac{a\omega}{\sqrt{a^2 + b^2}}\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y},
+    \frac{d\hat{\vb{e}}_{\text{T}}}{dt} = \frac{1}{\sqrt{a^2 + b^2}}\paren{-a\omega\cos\omega t\hat{\vb{e}}_x - a\omega\sin\omega t\hat{\vb{e}}_y} = -\frac{a\omega}{\sqrt{a^2 + b^2}}\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y}
 \end{equation}
 \begin{equation}
     \begin{split}
@@ -51,7 +51,7 @@ Given the definition of the normal vector,
 \begin{equation}
     \begin{split}
         \therefore\quad \kappa = \abs{\frac{d\hat{\vb{e}}_{\text{T}}}{ds}} &= \frac{a}{a^2 + b^2}\paren{\cos^2\omega t + \sin^2\omega t}\\
-        &= \frac{a}{a^2 + b^2},
+        &= \frac{a}{a^2 + b^2}.
     \end{split}
 \end{equation}
 Hence,
@@ -63,8 +63,12 @@ Hence,
 \end{equation}
 and,
 \begin{equation}
-    \frac{d\hat{\vb{e}}_{\text{N}}}{ds} = 
+    \begin{split}
+        \frac{d\hat{\vb{e}}_{\text{N}}}{ds} = \frac{d\hat{\vb{e}}_{\text{N}}}{dt}\frac{dt}{ds} &= -\paren{-\omega\sin\omega t\hat{\vb{e}}_x + \omega\cos\omega t\hat{\vb{e}}_y}\paren{\frac{1}{\omega\sqrt{a^2 + b^2}}}\\
+        &= \frac{1}{\sqrt{a^2 + b^2}}\paren{\sin\omega t\hat{\vb{e}}_x - \cos\omega t\hat{\vb{e}}_y}.
+    \end{split}
 \end{equation}
+\newpage\noindent
 Given the definition of the binormal vector as orthonormal to the tangent and
 normal vectors,
 \begin{equation}
@@ -81,17 +85,25 @@ normal vectors,
 \end{equation}
 and,
 \begin{equation}
-    \frac{d\hat{\vb{e}}_{\text{B}}}{ds} \equiv -\tau\hat{\vb{e}}_{\text{N}}
+    \frac{d\hat{\vb{e}}_{\text{B}}}{ds} \equiv -\tau\hat{\vb{e}}_{\text{N}}.
 \end{equation}
-\newpage\noindent Since the set of basis vectors
+Since the set of basis vectors
 $\cparen{\hat{\vb{e}}_{\text{T}},~\hat{\vb{e}}_{\text{N}},~\hat{\vb{e}}_{\text{B}}}$
 are mutually orthonormal,
 \begin{equation}
-    \hat{\vb{e}}_{\text{N}} \cdot \hat{\vb{e}}_{\text{B}} = 0
+    \hat{\vb{e}}_{\text{N}} \cdot \hat{\vb{e}}_{\text{B}} = 0,
 \end{equation}
 and thus,
 \begin{equation}
-    \hat{\vb{e}}_{\text{N}} \cdot \underbrace{\frac{d\hat{\vb{e}}_{\text{B}}}{ds}}_{-\tau\hat{\vb{e}}_{\text{N}}} + \frac{d\hat{\vb{e}}_{\text{N}}}{ds} \cdot \hat{\vb{e}}_{\text{B}} = 0\qquad \implies \qquad \tau = -\frac{d\hat{\vb{e}}_{\text{N}}}{ds} \cdot \hat{\vb{e}}_{\text{B}}
+    \hat{\vb{e}}_{\text{N}} \cdot \underbrace{\frac{d\hat{\vb{e}}_{\text{B}}}{ds}}_{-\tau\hat{\vb{e}}_{\text{N}}} + \frac{d\hat{\vb{e}}_{\text{N}}}{ds} \cdot \hat{\vb{e}}_{\text{B}} = 0
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \implies \quad \tau &= -\frac{d\hat{\vb{e}}_{\text{N}}}{ds} \cdot \hat{\vb{e}}_{\text{B}}\\
+        &= -\sparen{-\frac{1}{\sqrt{a^2 + b^2}}\paren{\sin\omega t\hat{\vb{e}}_x - \cos\omega t\hat{\vb{e}}_y}} \cdot \sparen{\frac{1}{\sqrt{a^2 + b^2}}\paren{b\sin\omega t\hat{\vb{e}}_x - b\cos\omega t\hat{\vb{e}}_y + a\hat{\vb{e}}_z}}\\
+        &= \frac{1}{a^2 + b^2}\paren{b\sin^2\omega t + b\cos^2\omega t}\\
+        &= \frac{b}{a^2 + b^2}.
+    \end{split}
 \end{equation}
 \end{sol}
 
