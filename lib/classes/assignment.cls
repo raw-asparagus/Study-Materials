@@ -52,6 +52,19 @@
 \RequirePackage{caption}
 
 % -------------------------------------------------------------
+%  Siunitx setup
+% -------------------------------------------------------------
+\DeclareSIUnit\day{d}
+
+\newcommand*{\ra}[2][]{{
+    \ang[
+        angle-symbol-degree=\textsuperscript{h},
+        angle-symbol-minute=\textsuperscript{m},
+        angle-symbol-second=\textsuperscript{s},
+        #1]{#2}%
+}}
+
+% -------------------------------------------------------------
 %  Subfiles support
 % -------------------------------------------------------------
 \RequirePackage{subfiles}
