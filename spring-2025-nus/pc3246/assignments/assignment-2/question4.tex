@@ -3,11 +3,30 @@
 \begin{document}
 
 \begin{q}{4}
-Consider an observer at the latitude of \ang{20}N and a star at $A = \ang{180}$ and $h = \ang{60}$. If the vernal equinox is at its meridian two hours later, what are the declination and right ascension of the star?
+Consider an observer at the latitude of \ang{20}N and a star at $A = \ang{180}$
+and $h = \ang{60}$. If the vernal equinox is at its meridian two hours later,
+what are the declination and right ascension of the star?
 \end{q}
 
 \begin{sol}
-
+Since the star has an azimuth of $A = \ang{180}$, the star is currently at upper
+culmination south of the prime vertical with an altitude $h = \ang{60}$ and a
+declination angle,
+\begin{equation}
+    \delta = \paren{\lambda + \ang{90}} - \paren{\ang{180} - h_{\text{upper culmination}}} = \paren{\ang{20} + \ang{90}} - \paren{\ang{180} - \ang{60}} = \ang{-10}.
+\end{equation}
+Consider the local sidereal time (LST),
+\begin{equation}
+    \text{LST} = \text{HA}_{\aries} = \ra{-2},
+\end{equation}
+and the hour angle of the star,
+\begin{equation}
+    \text{HA} = \ra{0},
+\end{equation}
+which gives,
+\begin{equation}
+    \alpha = \text{LST} - \text{HA} = \ra{-2} - \ra{0} = \ra{-2}.
+\end{equation}
 \end{sol}
 
 \end{document}
