@@ -33,6 +33,7 @@
 \let\braket\undefined
 
 \RequirePackage{bm}
+\RequirePackage{wasysym}
 
 % -------------------------------------------------------------
 %  Additional common packages (optional but recommended)
@@ -54,7 +55,7 @@
 % -------------------------------------------------------------
 %  Siunitx setup
 % -------------------------------------------------------------
-\DeclareSIUnit\day{d}
+\DeclareSIUnit\au{AU}
 
 \newcommand*{\ra}[2][]{{
     \ang[
@@ -179,6 +180,14 @@
 \newenvironment{sol}[1][Solution]{%
     \begin{trivlist}
     \item[\hskip \labelsep {\bfseries #1:}]%
+}{%
+    \end{trivlist}%
+}
+
+\newenvironment{notes}[1][Notes]{%
+    \begin{trivlist}
+    \item[\hskip \labelsep {\itshape #1:}]
+    \itshape
 }{%
     \end{trivlist}%
 }
