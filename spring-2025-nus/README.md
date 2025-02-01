@@ -5,6 +5,7 @@
 ```text
 .
 ├── cs2103 (CS2103 Software Engineering)
+├── el1101e (EL1101E The Nature of Language)
 ├── pc3246 (PC3246 Astrophysics I)
 ├── pc3261 (PC3261 Classical Mechanics II)
 ├── pc4245 (PC4245 Particle Physics)
