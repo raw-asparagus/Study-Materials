@@ -1,8 +1,12 @@
 % -------------------------------------------------------------
-%  Class declaration and base class
+%  assignment.cls
 % -------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{assignment}[2025/01/01 Assignment template]
+
+% -------------------------------------------------------------
+%  Base class
+% -------------------------------------------------------------
 \LoadClass[11pt]{extarticle}
 
 % -------------------------------------------------------------
@@ -10,22 +14,22 @@
 % -------------------------------------------------------------
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
-
 \RequirePackage[english]{babel}
 
 % -------------------------------------------------------------
 %  Micro-typography and layout
 % -------------------------------------------------------------
 \RequirePackage{microtype}
-
 \RequirePackage[margin=1in]{geometry}
 
 % -------------------------------------------------------------
 %  Mathematics packages
 % -------------------------------------------------------------
-\RequirePackage{amsmath,amssymb,amsthm}
+\RequirePackage{amsmath, amssymb, amsthm}
 \RequirePackage{mathtools}
 
+% The 'physics' package also defines \abs, \bra, \ket, \braket, etc.,
+% so we undefine them before re-declaring to avoid clashes.
 \RequirePackage{physics}
 \let\abs\undefined
 \let\bra\undefined
@@ -39,31 +43,27 @@
 %  Additional common packages (optional but recommended)
 % -------------------------------------------------------------
 \RequirePackage{graphicx}
-
 \RequirePackage{xcolor}
-
 \RequirePackage{enumitem}
-
 \RequirePackage{booktabs}
-
 \RequirePackage{siunitx}
-
 \RequirePackage{listings}
-
 \RequirePackage{caption}
 
 % -------------------------------------------------------------
-%  Siunitx setup
+%  siunitx setup
 % -------------------------------------------------------------
 \DeclareSIUnit\au{AU}
 
-\newcommand*{\ra}[2][]{{
+% Example command using siunitx angle features
+\newcommand*{\ra}[2][]{%
     \ang[
         angle-symbol-degree=\textsuperscript{h},
         angle-symbol-minute=\textsuperscript{m},
         angle-symbol-second=\textsuperscript{s},
-        #1]{#2}%
-}}
+        #1
+    ]{#2}%
+}
 
 % -------------------------------------------------------------
 %  Subfiles support
@@ -100,42 +100,43 @@
 \DeclarePairedDelimiterX{\braket}[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
 
 \makeatletter
-    \let\oldabs\abs
-    \def \abs {\@ifstar{\oldabs}{\oldabs*}}
+% Make starred versions default to * usage if not specified
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
 
-    \let\oldparen\paren
-    \def \paren {\@ifstar{\oldparen}{\oldparen*}}
+\let\oldparen\paren
+\def\paren{\@ifstar{\oldparen}{\oldparen*}}
 
-    \let\oldsparen\sparen
-    \def \sparen {\@ifstar{\oldsparen}{\oldsparen*}}
+\let\oldsparen\sparen
+\def\sparen{\@ifstar{\oldsparen}{\oldsparen*}}
 
-    \let\oldcparen\cparen
-    \def \cparen {\@ifstar{\oldcparen}{\oldcparen*}}
+\let\oldcparen\cparen
+\def\cparen{\@ifstar{\oldcparen}{\oldcparen*}}
 
-    \let\oldaparen\aparen
-    \def \aparen {\@ifstar{\oldaparen}{\oldaparen*}}
+\let\oldaparen\aparen
+\def\aparen{\@ifstar{\oldaparen}{\oldaparen*}}
 
-    \let\oldsetmid\setmid
-    \def \setmid {\@ifstar{\oldsetmid}{\oldsetmid*}}
+\let\oldsetmid\setmid
+\def\setmid{\@ifstar{\oldsetmid}{\oldsetmid*}}
 
-    \let\oldbra\bra
-    \def \bra {\@ifstar{\oldbra}{\oldbra*}}
+\let\oldbra\bra
+\def\bra{\@ifstar{\oldbra}{\oldbra*}}
 
-    \let\oldket\ket
-    \def \ket {\@ifstar{\oldket}{\oldket*}}
+\let\oldket\ket
+\def\ket{\@ifstar{\oldket}{\oldket*}}
 
-    \let\oldbraket\braket
-    \def \braket {\@ifstar{\oldbraket}{\oldbraket*}}
+\let\oldbraket\braket
+\def\braket{\@ifstar{\oldbraket}{\oldbraket*}}
 \makeatother
 
 % -------------------------------------------------------------
 %  Custom commands
 % -------------------------------------------------------------
 \newcommand{\courseinfo}[4]{%
-    \def\coursecode{#1} % Course code
-    \def\coursename{#2} % Course name
-    \def\assignment{#3} % Assignment title
-    \def\duedate{#4}    % Due date
+    \def\coursecode{#1}% Course code
+    \def\coursename{#2}% Course name
+    \def\assignment{#3}% Assignment title
+    \def\duedate{#4}%    Due date
 }
 
 \newcommand{\displayheader}{%
@@ -165,30 +166,43 @@
 % -------------------------------------------------------------
 \newenvironment{ex}[2][Exercise]{%
     \begin{trivlist}
-    \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]%
-}{%
+        \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]%
+        }{%
     \end{trivlist}%
 }
 
 \newenvironment{q}[2][Question]{%
     \begin{trivlist}
-    \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]%
-}{%
+        \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]%
+        }{%
     \end{trivlist}%
 }
 
+\newcounter{subquestion}
+\renewcommand{\thesubquestion}{\alph{subquestion}}
+
 \newenvironment{sol}[1][Solution]{%
+    \setcounter{subquestion}{0}
     \begin{trivlist}
-    \item[\hskip \labelsep {\bfseries #1:}]%
-}{%
+        \item[\hskip \labelsep {\bfseries #1:}]%
+        }{%
+        \hfill $\blacksquare$
     \end{trivlist}%
+}
+
+\newenvironment{subsol}[1][]{%
+    \refstepcounter{subquestion}
+    \par\medskip
+    \noindent {\bfseries (\thesubquestion) #1}%
+}{%
+    \par\medskip
 }
 
 \newenvironment{notes}[1][Notes]{%
     \begin{trivlist}
-    \item[\hskip \labelsep {\itshape #1:}]
-    \itshape
-}{%
+        \item[\hskip \labelsep {\itshape #1:}]
+        \itshape
+        }{%
     \end{trivlist}%
 }
 
