@@ -43,6 +43,7 @@
 %  Additional common packages (optional but recommended)
 % -------------------------------------------------------------
 \RequirePackage{graphicx}
+\RequirePackage{svg}
 \RequirePackage{xcolor}
 \RequirePackage{enumitem}
 \RequirePackage{booktabs}
