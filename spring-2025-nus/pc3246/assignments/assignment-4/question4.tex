@@ -1,0 +1,69 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{q}{4}
+Consider an achromatic doublet. Let $R_1$ and $R_2$ be the radii of curvature of
+the converging lens and $-R_2$ and $R_3$ be the radii the curvature of the
+diverging lens.
+\begin{enumerate}[label=\text{(\alph*)}]
+    \item Express the focal length for red light ($f_{\text{r}}$) in terms of
+    $R_1$, $R_2$, $R_3$, and the refractive indices of the crown and flint
+    glasses.
+    \item Express the focal length for blue light ($f_{\text{b}}$) in terms of
+    $R_1$, $R_2$, $R_3$, and the refractive indices of the crown and flint
+    glasses.
+    \item Let $f_{\text{r}} = f_{\text{b}}$. Find an equation relating $R_1$,
+    $R_2$, $R_3$. Simplify the equation.
+\end{enumerate}
+\end{q}
+
+\begin{sol}
+\begin{subsol}
+For the crown (converging) lens made of crown glass with surfaces of radii $R_1$
+and $R_2$, it has a focal length $f_{\text{c},~\text{r}}$ of,
+\begin{equation}
+    \frac{1}{f_{\text{c},~\text{r}}} = \paren{n_{\text{c},~\text{r}} - 1}\paren{\frac{1}{R_1} - \frac{1}{R_2}}.
+\end{equation}
+For the flint (diverging) lens with surfaces of radii $-R_2$ and $R_3$, it has a
+focal length $f_{\text{f},~\text{r}}$ of,
+\begin{equation}
+    \frac{1}{f_{\text{f},~\text{r}}} = \paren{n_{\text{f},~\text{r}} - 1}\paren{\frac{1}{-R_2} - \frac{1}{R_3}} = \paren{n_{\text{f},~\text{r}} - 1}\paren{-\frac{1}{R_2} - \frac{1}{R_3}}.
+\end{equation}
+Thus, for red light
+\begin{equation}
+    \begin{split}
+        \frac{1}{f_{\text{r}}} &= \frac{1}{f_{\text{c},~\text{r}}} + \frac{1}{f_{\text{f},~\text{r}}}\\
+        &= \paren{n_{\text{c},~\text{r}} - 1}\paren{\frac{1}{R_1} - \frac{1}{R_2}} + \paren{n_{\text{f},~\text{r}} - 1}\paren{-\frac{1}{R_2} - \frac{1}{R_3}}.
+    \end{split}
+\end{equation}
+\end{subsol}
+
+\begin{subsol}
+and for blue light,
+\begin{equation}
+    \frac{1}{f_{\text{b}}} = \paren{n_{\text{c},~\text{b}} - 1}\paren{\frac{1}{R_1} - \frac{1}{R_2}} + \paren{n_{\text{f},~\text{b}} - 1}\paren{-\frac{1}{R_2} - \frac{1}{R_3}}.
+\end{equation}
+\end{subsol}
+
+\begin{subsol}
+Let $f_{\text{r}} = f_{\text{b}}$,
+\begin{equation}
+    \begin{split}
+        &\paren{n_{\text{c},~\text{r}} - 1}\paren{\frac{1}{R_1} - \frac{1}{R_2}} + \paren{n_{\text{f},~\text{r}} - 1}\paren{-\frac{1}{R_2} - \frac{1}{R_3}}\\
+        &= \paren{n_{\text{c},~\text{b}} - 1}\paren{\frac{1}{R_1} - \frac{1}{R_2}} + \paren{n_{\text{f},~\text{b}} - 1}\paren{-\frac{1}{R_2} - \frac{1}{R_3}}
+    \end{split}
+\end{equation}
+\begin{equation}
+    \implies\quad\sparen{\paren{n_{\text{c},~\text{r}} - 1} - \paren{n_{\text{c},~\text{b}} - 1}}\paren{\frac{1}{R_1} - \frac{1}{R_2}} = \sparen{\paren{n_{\text{f},~\text{b}} - 1} - \paren{n_{\text{f},~\text{r}} - 1}}\paren{-\frac{1}{R_2} - \frac{1}{R_3}}
+\end{equation}
+\begin{equation}
+    \implies\quad\paren{n_{\text{c},~\text{r}} - n_{\text{c},~\text{b}}}\paren{\frac{1}{R_1} - \frac{1}{R_2}} = \paren{n_{\text{f},~\text{b}} - n_{\text{f},~\text{r}}}\paren{-\frac{1}{R_2} - \frac{1}{R_3}}
+\end{equation}
+\begin{equation}
+    \therefore\quad \paren{n_{\text{c},~\text{r}} - n_{\text{c},~\text{b}}}\paren{\frac{1}{R_1} - \frac{1}{R_2}} = \paren{n_{\text{f},~\text{r}} - n_{\text{f},~\text{b}}}\paren{\frac{1}{R_2} + \frac{1}{R_3}}.
+\end{equation}
+\end{subsol}
+\end{sol}
+
+\end{document}

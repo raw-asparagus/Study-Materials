@@ -1,0 +1,21 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{q}{1}
+Using the Rayleigh criterion, estimate the theoretical diffraction limit for the
+angular resolution of a typical \SI{20}{cm} (\SI{8}{in}) amateur telescope at
+\SI{550}{nm}. Express your answer in arcseconds.
+\end{q}
+
+\begin{sol}
+Using the Rayleigh criterion,
+\begin{equation}
+    \begin{split}
+        \theta &\sim \frac{1.22\lambda}{D} = \frac{1.22\paren{550 \times 10^{-9}}}{20 \times 10^{-2}} = 3.355 \times 10^{-6}\SI{}{rad}\\
+        &\approx \ang{;;0.692}.
+    \end{split}
+\end{equation}
+\end{sol}
+
+\end{document}
