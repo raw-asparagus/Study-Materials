@@ -1,0 +1,110 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{ex}{1.3}
+Find the tangent, normal and binormal vectors, as well as, curvature and torsion
+for the circular helix.
+\end{ex}
+
+\begin{sol}
+Starting with the position vector of a moving particle with a trajectory of a
+circular helix,
+\begin{equation}
+    \vb{r} = a\cos\omega t\hat{\vb{e}}_x + a\sin\omega t\hat{\vb{e}}_y + b\omega t\hat{\vb{e}}_z.
+\end{equation}
+From the definition of the velocity vector as the rate of change of the position
+vector w.r.t. time,
+\begin{equation}
+    \vb{v} = \frac{d\vb{r}}{dt} = -a\omega\sin\omega t\hat{\vb{e}}_x + a\omega\cos\omega t\hat{\vb{e}}_y + b\omega\hat{\vb{e}}_z.
+\end{equation}
+From which, we can obtain the trajectory arc length w.r.t. $t = 0$,
+\begin{equation}
+    s = \int_0^t\abs{\vb{v}}dt^{\prime} = \int_0^t\abs{-a\omega\sin\omega t^{\prime} + a\omega\cos\omega t^{\prime} + b\omega}dt^{\prime} = \omega t\sqrt{a^2 + b^2},
+\end{equation}
+and,
+\begin{equation}
+    \frac{ds}{dt} = \omega\sqrt{a^2 + b^2}.
+\end{equation}
+\newpage\noindent
+Given the definition of the tangent vector,
+\begin{equation}
+    \begin{split}
+        \hat{\vb{e}}_{\text{T}} &= \frac{d\vb{r}}{ds} = \frac{d\vb{r}}{dt}\frac{dt}{ds} = \paren{-a\omega\sin\omega t\hat{\vb{e}}_x + a\omega\cos\omega t\hat{\vb{e}}_y + b\omega\hat{\vb{e}}_z}\paren{\frac{1}{\omega\sqrt{a^2 + b^2}}}\\
+        &= \frac{1}{\sqrt{a^2 + b^2}}\paren{-a\sin\omega t\hat{\vb{e}}_x + a\cos\omega t\hat{\vb{e}}_y + b\hat{\vb{e}}_z},
+    \end{split}
+\end{equation}
+and,
+\begin{equation}
+    \frac{d\hat{\vb{e}}_{\text{T}}}{dt} = \frac{1}{\sqrt{a^2 + b^2}}\paren{-a\omega\cos\omega t\hat{\vb{e}}_x - a\omega\sin\omega t\hat{\vb{e}}_y} = -\frac{a\omega}{\sqrt{a^2 + b^2}}\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \implies\quad \frac{d\hat{\vb{e}}_{\text{T}}}{ds} = \frac{d\hat{\vb{e}}_{\text{T}}}{dt}\frac{dt}{ds} &= -\frac{a\omega}{\sqrt{a^2 + b^2}}\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y}\paren{\frac{1}{\omega\sqrt{a^2 + b^2}}}\\
+        &= -\frac{a}{a^2 + b^2}\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y}.
+    \end{split}
+\end{equation}
+Given the definition of the normal vector,
+\begin{equation}
+    \hat{\vb{e}}_{\text{N}} \equiv \underbrace{\abs{\frac{1}{\frac{d\hat{\vb{e}}_{\text{T}}}{ds}}}}_{1 / \kappa}\frac{d\hat{\vb{e}}_{\text{T}}}{ds}.
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \therefore\quad \kappa = \abs{\frac{d\hat{\vb{e}}_{\text{T}}}{ds}} &= \frac{a}{a^2 + b^2}\paren{\cos^2\omega t + \sin^2\omega t}\\
+        &= \frac{a}{a^2 + b^2}.
+    \end{split}
+\end{equation}
+Hence,
+\begin{equation}
+    \begin{split}
+        \hat{\vb{e}}_{\text{N}} = \frac{1}{\kappa}\frac{d\hat{\vb{e}}_{\text{T}}}{ds} &= \frac{a^2 + b^2}{a}\sparen{-\frac{a}{a^2 + b^2}\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y}}\\
+        &= -\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y},
+    \end{split}
+\end{equation}
+and,
+\begin{equation}
+    \begin{split}
+        \frac{d\hat{\vb{e}}_{\text{N}}}{ds} = \frac{d\hat{\vb{e}}_{\text{N}}}{dt}\frac{dt}{ds} &= -\paren{-\omega\sin\omega t\hat{\vb{e}}_x + \omega\cos\omega t\hat{\vb{e}}_y}\paren{\frac{1}{\omega\sqrt{a^2 + b^2}}}\\
+        &= \frac{1}{\sqrt{a^2 + b^2}}\paren{\sin\omega t\hat{\vb{e}}_x - \cos\omega t\hat{\vb{e}}_y}.
+    \end{split}
+\end{equation}
+\newpage\noindent
+Given the definition of the binormal vector as orthonormal to the tangent and
+normal vectors,
+\begin{equation}
+    \begin{split}
+        \hat{\vb{e}}_{\text{B}} \equiv \hat{\vb{e}}_{\text{T}} \times \hat{\vb{e}}_{\text{N}} &= \sparen{\frac{1}{\sqrt{a^2 + b^2}}\paren{-a\sin\omega t\hat{\vb{e}}_x + a\cos\omega t\hat{\vb{e}}_y} + b\hat{\vb{e}}_z} \times \sparen{-\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y}}\\
+        &= -\frac{1}{\sqrt{a^2 + b^2}}\begin{vmatrix}
+            \hat{\vb{e}}_x & \hat{\vb{e}}_y & \hat{\vb{e}}_z \\
+            -a\sin\omega t & a\cos\omega t & b \\
+            \cos\omega t & \sin\omega t & 0
+        \end{vmatrix}\\
+        &= -\frac{1}{\sqrt{a^2 + b^2}}\sparen{-b\sin\omega t\hat{\vb{e}}_x - \paren{-b\cos\omega t\hat{\vb{e}}_y} + \paren{-a\sin^2\omega t - a\cos^2\omega t}\hat{\vb{e}}_z}\\
+        &= \frac{1}{\sqrt{a^2 + b^2}}\paren{b\sin\omega t\hat{\vb{e}}_x - b\cos\omega t\hat{\vb{e}}_y + a\hat{\vb{e}}_z},
+    \end{split}
+\end{equation}
+and,
+\begin{equation}
+    \frac{d\hat{\vb{e}}_{\text{B}}}{ds} \equiv -\tau\hat{\vb{e}}_{\text{N}}.
+\end{equation}
+Since the set of basis vectors
+$\cparen{\hat{\vb{e}}_{\text{T}},~\hat{\vb{e}}_{\text{N}},~\hat{\vb{e}}_{\text{B}}}$
+are mutually orthonormal,
+\begin{equation}
+    \hat{\vb{e}}_{\text{N}} \cdot \hat{\vb{e}}_{\text{B}} = 0,
+\end{equation}
+and thus,
+\begin{equation}
+    \hat{\vb{e}}_{\text{N}} \cdot \underbrace{\frac{d\hat{\vb{e}}_{\text{B}}}{ds}}_{-\tau\hat{\vb{e}}_{\text{N}}} + \frac{d\hat{\vb{e}}_{\text{N}}}{ds} \cdot \hat{\vb{e}}_{\text{B}} = 0
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \implies \quad \tau &= -\frac{d\hat{\vb{e}}_{\text{N}}}{ds} \cdot \hat{\vb{e}}_{\text{B}}\\
+        &= -\sparen{-\frac{1}{\sqrt{a^2 + b^2}}\paren{\sin\omega t\hat{\vb{e}}_x - \cos\omega t\hat{\vb{e}}_y}} \cdot \sparen{\frac{1}{\sqrt{a^2 + b^2}}\paren{b\sin\omega t\hat{\vb{e}}_x - b\cos\omega t\hat{\vb{e}}_y + a\hat{\vb{e}}_z}}\\
+        &= \frac{1}{a^2 + b^2}\paren{b\sin^2\omega t + b\cos^2\omega t}\\
+        &= \frac{b}{a^2 + b^2}.
+    \end{split}
+\end{equation}
+\end{sol}
+
+\end{document}

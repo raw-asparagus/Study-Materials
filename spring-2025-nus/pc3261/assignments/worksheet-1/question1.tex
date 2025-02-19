@@ -1,0 +1,46 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{ex}{1.1}
+Find the particles's velocity and acceleration vectors. What are the magnitude
+and direction of the particle's acceleration?
+\end{ex}
+
+\begin{sol}
+Starting with the position vector of the particle undergoing uniform circular
+motion,
+\begin{equation}
+    \vb{r} = R\cos\omega t\hat{\vb{e}}_x + R\sin\omega t\hat{\vb{e}}_y.
+\end{equation}
+From the definition of the velocity vector as the rate of change of the position
+vector w.r.t. time,
+\begin{equation}
+    \begin{split}
+        \vb{v} \equiv \frac{d\vb{r}}{dt} &= R\paren{-\omega\sin\omega t\hat{\vb{e}}_x + \omega\cos\omega t\hat{\vb{e}}_y}\\
+        &= R\omega\paren{-\sin\omega t\hat{\vb{e}}_x + \cos\omega t\hat{\vb{e}}_y}.
+    \end{split}
+\end{equation}
+Similarly, from the definition of the acceleration vector as the rate of change
+of the velocity vector w.r.t. time,
+\begin{equation}
+    \begin{split}
+        \vb{a} \equiv \frac{d\vb{v}}{dt} &= R\omega\paren{-\omega\cos\omega t\hat{\vb{e}}_x - \omega\sin\omega t\hat{\vb{e}}_y}\\
+        &= -R\omega^2\paren{\cos\omega t\hat{\vb{e}}_x + \sin\omega t\hat{\vb{e}}_y},
+    \end{split}
+\end{equation}
+which yields a magnitude,
+\begin{equation}
+    \begin{split}
+        a = \sqrt{\vb{a} \cdot \vb{a}} &= \sqrt{R^2\omega^4\cos^2\omega t\underbrace{\paren{\hat{\vb{e}}_x \cdot \hat{\vb{e}}_x}}_1 + R^2\omega^4\sin^2\omega t\underbrace{\paren{\hat{\vb{e}}_y \cdot \hat{\vb{e}}_y}}_1}\\
+        &= R\omega^2,
+    \end{split}
+\end{equation}
+and a direction,
+\begin{equation}
+    \hat{\vb{a}} = \frac{\vb{a}}{a} = -\cos\omega t\hat{\vb{e}}_x - \sin\omega t\hat{\vb{e}}_y,
+\end{equation}
+pointing radially inwards towards the centre of the circular path.
+\end{sol}
+
+\end{document}

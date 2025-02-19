@@ -1,0 +1,62 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{ex}{1.4}
+Establish the relationship between unit basis vectors
+$\paren{\hat{\vb{e}}_{\rho},~\hat{\vb{e}}_{\phi}}$ of the polar coordinate
+system and the unit basis vectors $\paren{\hat{\vb{e}}_x,~\hat{\vb{e}}_y}$ of
+the Cartesian coordinate system. 
+\end{ex}
+
+\begin{sol}
+Geometrically,
+\begin{equation}
+    \begin{dcases}
+        ~\hat{\vb{e}}_{\rho} = \cos\phi\hat{\vb{e}}_x + \sin\phi\hat{\vb{e}}_y \\
+        ~\hat{\vb{e}}_{\phi} = -\sin\phi\hat{\vb{e}}_x + \cos\phi\hat{\vb{e}}_y
+    \end{dcases}.
+\end{equation}
+This transformation can be cast into a transformation matrix $\bm{R}$ as,
+\begin{equation}
+    \bm{R} = \begin{pmatrix}
+        \cos\phi & \sin\phi \\
+        -\sin\phi & \cos\phi
+    \end{pmatrix}.
+\end{equation}
+\newpage\noindent
+Since this transformation matrix is a rotation matrix,
+\begin{equation}
+    \bm{R}^{-1} = \bm{R}^{\intercal} = \begin{pmatrix}
+        \cos\phi & -\sin\phi \\
+        \sin\phi & \cos\phi
+    \end{pmatrix}
+\end{equation}
+\begin{equation}
+    \implies\quad \begin{pmatrix}
+        \hat{\vb{e}}_x \\
+        \hat{\vb{e}}_y
+    \end{pmatrix} = \bm{R}^{-1}\begin{pmatrix}
+        \hat{\vb{e}}_{\rho} \\
+        \hat{\vb{e}}_{\phi}
+    \end{pmatrix} = \begin{pmatrix}
+        \cos\phi & -\sin\phi \\
+        \sin\phi & \cos\phi
+    \end{pmatrix}\begin{pmatrix}
+        \hat{\vb{e}}_{\rho} \\
+        \hat{\vb{e}}_{\phi}
+    \end{pmatrix} = \begin{pmatrix}
+        \cos\phi\hat{\vb{e}}_{\rho} - \sin\phi\hat{\vb{e}}_{\phi} \\
+        \sin\phi\hat{\vb{e}}_{\rho} + \cos\phi\hat{\vb{e}}_{\phi}
+    \end{pmatrix},
+\end{equation}
+and,
+\begin{equation}
+    \begin{dcases}
+        ~\hat{\vb{e}}_x = \cos\phi\hat{\vb{e}}_{\rho} - \sin\phi\hat{\vb{e}}_{\phi} \\
+        ~\hat{\vb{e}}_y = \sin\phi\hat{\vb{e}}_{\rho} + \cos\phi\hat{\vb{e}}_{\phi}
+    \end{dcases}.
+\end{equation}
+\end{sol}
+
+\end{document}
