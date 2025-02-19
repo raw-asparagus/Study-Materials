@@ -1,0 +1,79 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{q}{1}
+In general, an \textit{integral average} of some continuous function
+$f\paren{t}$ over an interval $\tau$ is given by
+\begin{equation}
+    \aparen{f\paren{t}} = \frac{1}{\tau}\int_0^{\tau}f\paren{t}dt.
+\end{equation}
+Beginning with an expression for the integral average, prove that
+\begin{equation}
+    \aparen{U} = -G\frac{M\mu}{a},
+\end{equation}
+a binary system's gravitational potential energy, averaged over one period,
+equals the value of the instantaneous potential energy of the system when the
+two masses are separated by the distance $a$, the semimajor axis of the orbit of
+the reduced mass about the center of mass.
+
+\noindent\textit{Hints:
+\begin{itemize}
+    \item You may find the following definite integral useful:
+    \begin{equation}
+        \int_0^{2\pi}\frac{d\theta}{1 + e\cos\theta} = \frac{2\pi}{\sqrt{1 - e^2}}
+    \end{equation}
+    \item Express $U$ as a function of $\theta$, use $dt =
+    \frac{dt}{d\theta}{d\theta}$ and $L = \mu r^2\frac{d\theta}{dt}$.
+\end{itemize}}
+\end{q}
+
+\begin{sol}
+Starting from the given integral average, we first perform a change of
+variables,
+\begin{equation}
+    \aparen{U} = \frac{1}{\tau}\int_0^{\tau}U\paren{t}dt = \frac{1}{\tau}\int_0^{2\pi}U\paren{\theta}\frac{dt}{d\theta}d\theta.
+\end{equation}
+From the angular momenta $L$ of a reduced mass $\mu$ and central body $M$
+subjected to a central force,
+\begin{equation}
+    L = \mu r^2\frac{d\theta}{dt}\qquad \implies \qquad\frac{dt}{d\theta} = \frac{\mu r^2}{L},
+\end{equation}
+and the reduced mass system will have a potential energy $U$,
+\begin{equation}
+    U\paren{r} = -\frac{GM\mu}{r}.
+\end{equation}
+Hence,
+\begin{equation}
+    \aparen{U} = \frac{1}{\tau}\int_0^{2\pi}\paren{-\frac{GM\mu}{r}}\frac{\mu r^2}{L}d\theta = -\frac{GM\mu^2}{L\tau}\int_0^{2\pi}rd\theta.
+\end{equation}
+
+\newpage
+\noindent For a Keplerian orbit, the reduced mass $\mu$ draws out an ellipse about the central body $M$ as described by Kepler's 1\textsuperscript{st} Law,
+\begin{equation}
+    r\paren{\theta} = \frac{a\paren{1 - e^2}}{1 + e\cos\theta}.
+\end{equation}
+Therefore,
+\begin{equation}
+    \aparen{U} = -\frac{GM\mu^2}{L\tau}\int_0^{2\pi}\frac{a\paren{1 - e^2}}{1 + e\cos\theta}d\theta = -\frac{GM\mu^2a\paren{1 - e^2}}{L\tau}\frac{2\pi}{\sqrt{1 - e^2}} = -\frac{2\pi GM\mu^2a\sqrt{1 - e^2}}{L\tau},
+\end{equation}
+where by Kepler's 2\textsuperscript{nd} Law, an elliptical orbit has angular momenta $L$ given by,
+\begin{equation}
+    L = \mu\sqrt{GMa\paren{1 - e^2}}.
+\end{equation}
+Together,
+\begin{equation}
+    \aparen{U} = -\frac{2\pi GM\mu^2a\sqrt{1 - e^2}}{\mu\sqrt{GMa\paren{1 - e^2}}\tau} = -\frac{2\pi\mu\sqrt{GMa}}{\tau},
+\end{equation}
+and by Kepler's 3\textsuperscript{rd} Law, an elliptical orbit has period $\tau$ given by,
+\begin{equation}
+    \tau = 2\pi\sqrt{\frac{a^3}{GM}}.
+\end{equation}
+Such that,
+\begin{equation}
+    \aparen{U} = -\frac{2\pi\mu\sqrt{GMa}}{2\pi\sqrt{\frac{a^3}{GM}}} = -\frac{GM\mu}{a}.
+\end{equation}
+
+\end{sol}
+
+\end{document}
