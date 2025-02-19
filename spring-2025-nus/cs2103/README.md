@@ -17,6 +17,7 @@ software quality will also be covered.
 
 ```text
 .
+├── course (Course materials from AY2420)
 └── README.md
 ```
 
