@@ -1,0 +1,26 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{q}{2}
+Consider an observer at the latitude of \ang{40}N and a star at the azimuth $A =
+\ang{0}$ and altitude $h = \ang{10}$. Find the star's $A$ and $h$ when it
+transits the upper meridian.
+\end{q}
+
+\begin{sol}
+Since the star has an azimuth of $A = \ang{0}$ with an altitude $h <
+h_{\text{NCP}}$, the star is currently at lower culmination north of the prime
+vertical with $h = \ang{10}$. Given a declination angle,
+\begin{equation}
+    \delta = h_{\text{lower culmination}} - \paren{\lambda - \ang{90}} = \ang{10} - \paren{\ang{40} - \ang{90}} = \ang{60}
+\end{equation}
+At upper culmination, the star will have an altitude of,
+\begin{equation}
+    h_{\text{upper culmination}} = \paren{\lambda + \ang{90}} - \delta = \paren{\ang{40} + \ang{90}} - \ang{60} = \ang{70}
+\end{equation}
+and an azimuth $A_{\text{upper culmination}} = \ang{0}$ since the star will
+remain north of the prime vertical.
+\end{sol}
+
+\end{document}

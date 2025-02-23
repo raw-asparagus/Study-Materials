@@ -1,0 +1,74 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{q}{2}
+Verify that Kepler's third law in the form of Eq. \ref{eq:keplers-3rd-law}
+applies to the four moons that Galileo discovered orbiting Jupiter (the Galilean
+moons: Io, Europa, Ganymede, and Callisto).
+\begin{equation}\label{eq:keplers-3rd-law}
+    P^2 = \frac{4\pi^2}{G\paren{m_1 + m_2}}a^3.
+\end{equation}
+\begin{enumerate}[label=\text{(\alph*)}]
+    \item Using the data available in Appendix: Solar-System Data, create a
+    graph of $\log_{10}P$ vs. $\log_{10}a$
+    \item From the graph, show that the slope of the best-fit straight line
+    through the data is $3/2$.
+    \item Calculate the mass of Jupiter from the value of the $y$-intercept.
+\end{enumerate}
+\end{q}
+
+\begin{sol}
+\begin{subsol}
+\begin{figure}[h!]
+    \centering
+    \includesvg[pretex=\fontsize{8}{8}\selectfont, width=\textwidth]{galilean_moons.svg}
+\end{figure}
+\end{subsol}
+
+\newpage
+
+\begin{subsol}
+\begin{lstlisting}[style=pythonstyle]
+# Linear regression
+slope, intercept, r_value, p_value, std_err = linregress(galilean["log_10a"], galilean["log_10P"])
+
+print("Linear regression results:")
+print(f"\tSlope = {slope:.3f}")
+print(f"\tIntercept = {intercept:.3f}")
+\end{lstlisting}
+\texttt{Linear regression results:}
+
+\texttt{Slope = 1.49980}
+
+\texttt{Intercept = -7.75139}
+
+\begin{equation}
+    m \approx 1.500\quad\paren{\text{4 s.f.}}
+\end{equation}
+\end{subsol}
+
+\begin{subsol}
+Since $m_{\text{J}} \gg m_{\text{moon}}$, we can simplify Kepler's third law as
+\begin{equation}
+    P^2 \approx \frac{4\pi^2}{Gm_{\text{J}}}a^3.
+\end{equation}
+Taking the $\log_{10}$ on both sides,
+\begin{equation}
+    \log_{10}P^2 = \log_{10}\paren{\frac{4\pi^2}{Gm_{\text{J}}}a^3}\qquad \implies \qquad2\log_{10}P = \log_{10}\paren{\frac{4\pi^2}{Gm_{\text{J}}}} + 3\log_{10}a.
+\end{equation}
+At the $y$-intercept of the $\log_{10}P$ vs. $\log_{10}a$ graph, $\log_{10}P =
+-7.7514$ when $\log_{10}a = 3$. Hence,
+\begin{equation}
+    \log_{10}\paren{\frac{4\pi^2}{GM_{\text{J}}}} = 2\paren{-7.7514} - 3\paren{0}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        M_{\text{J}} &= \frac{4\pi^2}{G\sparen{10^{2\paren{-7.7514}}}} \approx 1.88249 \times 10^{27}\SI{}{kg}\\
+        &\approx 1.882 \times 10^{27}\SI{}{kg}\quad\paren{\text{4 s.f.}}
+    \end{split}
+\end{equation}
+\end{subsol}
+\end{sol}
+
+\end{document}

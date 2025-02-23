@@ -1,0 +1,53 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{q}{2}
+The New Technology Telescope (NTT) is operated by the European Southern
+Observatory at Cerro La Silla. This telescope was used as a testbed for
+evaluating the adaptive optics technology used in the VLT. The NTT has a
+\SI{3.58}{m} primary mirror with a focal ratio of $f/2.2$.
+\begin{enumerate}[label=\text{(\alph*)}]
+    \item Calculate the focal length of the primary mirror of the New Technology
+    Telescope.
+    \item What is the value of the plate scale of the NTT?
+    \item $\varepsilon$ Bootes is a double star system whose components are
+    separated by \ang{;;2.9}. Calculate the linear separation of the images on
+    the primary mirror focal plane of the NTT.
+\end{enumerate}
+\end{q}
+
+\begin{sol}
+\begin{subsol}
+The focal ratio $f/\#$ is defined as,
+\begin{equation}
+    \begin{split}
+        f/\# = \frac{f}{D}\qquad \implies \qquad f &= 2.2 \times 3.58 = \SI{7.876}{m}\\
+        &\approx \SI{7.88}{m}\quad\paren{\text{2 s.f.}}.
+    \end{split}
+\end{equation}
+\end{subsol}
+
+\begin{subsol}
+The plate scale $p$ is defined as,
+\begin{equation}
+    \begin{split}
+        p &\sim \frac{206265}{7876} = \ang{;;26.18906}\\
+        &\approx \ang{;;26.189},
+    \end{split}
+\end{equation}
+\end{subsol}
+
+\newpage
+\begin{subsol}
+and
+\begin{equation}
+    \begin{split}
+        s &= \frac{\Delta\theta_{\varepsilon\text{ Boo}}}{p} = \frac{2.9}{26.18906} \approx \SI{0.1107}{mm}\\
+        &\approx \SI{0.11}{mm}.
+    \end{split}
+\end{equation}
+\end{subsol}
+\end{sol}
+
+\end{document}

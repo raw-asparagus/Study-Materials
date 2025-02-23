@@ -1,0 +1,53 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\begin{q}{3}
+Suppose that a radio telescope receiver has a bandwidth of \SI{50}{MHz} centered
+at \SI{1.430}{GHz}. ($\SI{1}{GHz} = \SI{1000}{MHz}$). Assume that, rather than
+being a perfect detector over the entire bandwidth, the receiver's frequency
+dependence is triangular, meaning that the sensitivity of the detector is 0\% at
+the edges of the band and 100\% at its center.
+\begin{enumerate}[label=\text{(\alph*)}]
+    \item Assume that the radio dish is a 100\% efficient reflector over the
+    receiver's bandwidth and has a diameter of \SI{100}{m}. Assume also that the
+    source NGC 2558 (a spiral galaxy with an apparent visual magnitude of
+    $13.8$) has a constant spectral flux density of $S = \SI{2.5}{mJy}$ over the
+    detector bandwidth. Calculate the total power measured at the receiver.
+    \item Estimate the power emitted at the source in this frequency range if $d
+    = \SI{100}{Mpc}$. Assume that the source emits the signal isotropically.
+\end{enumerate}
+\begin{notes}
+$\SI{1}{Mpc} = 3.086 \times 10^{22}\SI{}{m}$
+\end{notes}
+\noindent\textit{Hints:
+\begin{itemize}
+    \item The integral of a triangular function is the area of a triangle.
+    \item Does the power emitted at the source depend on $f_{\nu}$?
+\end{itemize}}
+\end{q}
+
+\begin{sol}
+\begin{subsol}
+Since the receiver has a triangular frequency dependence, 
+\begin{equation}
+    \begin{split}
+        P = S_0\sparen{\pi\paren{\frac{D}{2}}^2}\frac{\Delta f}{2} &= \paren{2.5 \times 10^{-29}}\sparen{\pi\paren{\frac{100}{2}}^2}\frac{50 \times 10^6}{2} \approx 4.909 \times 10^{-18}\SI{}{W}\\
+        &\approx 4.9 \times 10^{-18}\SI{}{W}.
+    \end{split}
+\end{equation}
+\end{subsol}
+
+\begin{subsol}
+Using the inverse square law,
+\begin{equation}
+    \begin{split}
+        P_{\text{source}} &= \frac{P_{\text{receiver}}}{\pi\paren{\frac{D}{2}}^2}\paren{4\pi d^2} = \frac{16P_{\text{receiver}}d^2}{D^2} = \frac{16\paren{4.909 \times 10^{-18}}\paren{100 \times 3.0857 \times 10^{22}}^2}{100^2}\\
+        &\approx 7.479 \times 10^{28}\SI{}{W}\\
+        &\approx 7.5 \times 10^{28}\SI{}{W}.
+    \end{split}
+\end{equation}
+\end{subsol}
+\end{sol}
+
+\end{document}
